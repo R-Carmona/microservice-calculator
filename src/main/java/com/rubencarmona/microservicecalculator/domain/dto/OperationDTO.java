@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Builder
 public class OperationDTO implements Serializable {
+
     BigDecimal firstOperator;
     BigDecimal secondOperator;
     String operator;
