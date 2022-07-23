@@ -12,6 +12,9 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.logging.Logger;
 
+/**
+ * Clase de servicio con la lógica de la realización de las operaciones.
+ */
 @Service
 @AllArgsConstructor
 public class MicroServiceCalculatorServiceImpl implements MicroServiceCalculatorService {
@@ -22,7 +25,11 @@ public class MicroServiceCalculatorServiceImpl implements MicroServiceCalculator
     private final Logger LOGGER = Logger.getLogger(MicroServiceCalculatorServiceImpl.class.getName());
 
 
-
+    /**
+     * Método que realiza las operaciones.
+     * @param operationDTO datos de la operación.
+     * @return OperationResultDTO el resultado de la operación.
+     */
     @Override
     public OperationResultDTO getOperation(OperationDTO operationDTO) {
 
@@ -36,6 +43,11 @@ public class MicroServiceCalculatorServiceImpl implements MicroServiceCalculator
         BigDecimal secondOperator = operation.getSecondOperator();
         BigDecimal result = BigDecimal.ZERO;
 
+        /**
+         * Realizamos las operaciones permitidas.
+         * Para actualizar el microservicio con más operaciones se deberán de añadir a los
+         * casos posteriores, junto al método {@link com.rubencarmona.microservicecalculator.controller#validator(operationDTO)}
+         */
         switch (operation.getOperator()){
             case "+":
                 result = firstOperator.add(secondOperator);
@@ -52,6 +64,10 @@ public class MicroServiceCalculatorServiceImpl implements MicroServiceCalculator
     }// END METHOD
 
 
+    /**
+     * Método para guardar los datos de la trazabilidad de las operaciones.
+     * @param operationResultDTO
+     */
     public void saveTracerResult(OperationResultDTO operationResultDTO) {
         tracer.trace(operationResultDTO);
     };

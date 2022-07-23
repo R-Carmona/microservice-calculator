@@ -6,7 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-
+/**
+ * Clase con los datos del resultado de la operación.
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

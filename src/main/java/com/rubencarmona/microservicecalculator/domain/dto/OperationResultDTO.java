@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-
+/**
+ * Clase para la transferencia del resultado de la operación.
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

@@ -6,6 +6,9 @@ import com.rubencarmona.microservicecalculator.domain.dto.OperationResultDTO;
 
 import java.math.BigDecimal;
 
+/**
+ * Clase de utilidad para pasar objetos a formato json, necesarios para las llamadas con postman y similares.
+ */
 public class CreateJSON {
     public static void main(String[] args) {
 

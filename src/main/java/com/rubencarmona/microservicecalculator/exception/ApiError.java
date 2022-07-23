@@ -8,6 +8,9 @@ import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
 
+/**
+ * Clase para retornar un mensaje personalizado en las excepciones.
+ */
 @Setter
 @Getter
 @Builder
