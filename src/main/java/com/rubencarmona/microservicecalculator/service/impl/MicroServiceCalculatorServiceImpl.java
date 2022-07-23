@@ -1,15 +1,12 @@
 package com.rubencarmona.microservicecalculator.service.impl;
 
-import com.rubencarmona.microservicecalculator.controller.MicroServiceCalculatorController;
 import com.rubencarmona.microservicecalculator.domain.Operation;
-import com.rubencarmona.microservicecalculator.domain.OperationResult;
 import com.rubencarmona.microservicecalculator.domain.dto.OperationDTO;
 import com.rubencarmona.microservicecalculator.domain.dto.OperationResultDTO;
 import com.rubencarmona.microservicecalculator.mapper.OperationMapperService;
 import com.rubencarmona.microservicecalculator.service.MicroServiceCalculatorService;
 import io.corp.calculator.TracerImpl;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -17,13 +14,14 @@ import java.util.logging.Logger;
 
 @Service
 @AllArgsConstructor
-@NoArgsConstructor
 public class MicroServiceCalculatorServiceImpl implements MicroServiceCalculatorService {
 
-    TracerImpl tracer = new TracerImpl();
+    TracerImpl tracer;
     OperationMapperService operationMapperService;
 
     private final Logger LOGGER = Logger.getLogger(MicroServiceCalculatorServiceImpl.class.getName());
+
+
 
     @Override
     public OperationResultDTO getOperation(OperationDTO operationDTO) {
@@ -57,4 +55,5 @@ public class MicroServiceCalculatorServiceImpl implements MicroServiceCalculator
     public void saveTracerResult(OperationResultDTO operationResultDTO) {
         tracer.trace(operationResultDTO);
     };
+
 }// END CLASS
