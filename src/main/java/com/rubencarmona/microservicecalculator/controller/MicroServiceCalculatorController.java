@@ -47,9 +47,18 @@ public class MicroServiceCalculatorController {
         LOGGER.info("Walking through the ValidatorServiceImpl: " + LOGGER.getName());
 
         /**
+         * Validamos si nos viene algún dato a null.
+         */
+        if(operationDTO.getFirstOperator() == null){
+            throw  new OperationBadRequest("Primer operador es nulo.");
+        }  else if (operationDTO.getSecondOperator() == null) {
+            throw  new OperationBadRequest("Segundo operador es nulo.");
+        } else if (operationDTO.getOperator() == null) {
+            throw  new OperationBadRequest("El operador es nulo.");
+        }
+
+        /**
          * Comprobamos que el operador no venga vacío.
-         * Nunca puede venir nulo pues el JSON debe de contener el valor cómo String,
-         * si no hay cadena vacía el controlador dará BAD_REQUIEST.
          */
         if(operationDTO.getOperator().isEmpty() || operationDTO.getOperator().isBlank()){
             LOGGER.warning("Operador con cadena vacía: " + LOGGER.getName());

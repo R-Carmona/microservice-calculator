@@ -6,6 +6,7 @@ import com.rubencarmona.microservicecalculator.domain.dto.OperationResultDTO;
 import com.rubencarmona.microservicecalculator.service.MicroServiceCalculatorService;
 import io.corp.calculator.TracerImpl;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -16,6 +17,7 @@ import java.util.logging.Logger;
  */
 @Service
 @AllArgsConstructor
+@NoArgsConstructor
 public class MicroServiceCalculatorServiceImpl implements MicroServiceCalculatorService {
 
     TracerImpl tracer;
