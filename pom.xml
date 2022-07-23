@@ -40,12 +40,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId>
-            <version>1.5.2.Final</version>
-        </dependency>
-
-        <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
         </dependency>
@@ -80,14 +74,6 @@
                 <configuration>
                     <source>17</source> <!-- depending on your project -->
                     <target>17</target> <!-- depending on your project -->
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.mapstruct</groupId>
-                            <artifactId>mapstruct-processor</artifactId>
-                            <version>1.5.2.Final</version>
-                        </path>
-                        <!-- other annotation processors -->
-                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
 

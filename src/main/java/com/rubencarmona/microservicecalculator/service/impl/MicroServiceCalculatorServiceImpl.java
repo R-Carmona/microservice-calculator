@@ -3,7 +3,6 @@ package com.rubencarmona.microservicecalculator.service.impl;
 import com.rubencarmona.microservicecalculator.domain.Operation;
 import com.rubencarmona.microservicecalculator.domain.dto.OperationDTO;
 import com.rubencarmona.microservicecalculator.domain.dto.OperationResultDTO;
-import com.rubencarmona.microservicecalculator.mapper.OperationMapperService;
 import com.rubencarmona.microservicecalculator.service.MicroServiceCalculatorService;
 import io.corp.calculator.TracerImpl;
 import lombok.AllArgsConstructor;
@@ -20,8 +19,6 @@ import java.util.logging.Logger;
 public class MicroServiceCalculatorServiceImpl implements MicroServiceCalculatorService {
 
     TracerImpl tracer;
-    OperationMapperService operationMapperService;
-
     private final Logger LOGGER = Logger.getLogger(MicroServiceCalculatorServiceImpl.class.getName());
 
 
