@@ -10,9 +10,9 @@
     </parent>
     <groupId>com.rubencarmona</groupId>
     <artifactId>microservice-calculator</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.1.0-SNAPSHOT</version>
     <name>microservicecalculator</name>
-    <description>microservicecalculator</description>
+    <description>Microservico para calcular dos operadores</description>
     <properties>
         <java.version>17</java.version>
     </properties>
@@ -51,6 +51,19 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -85,9 +98,9 @@
                     <excludes>
                         <exclude>**/com/rubencarmona/microservicecalculator/domain/*</exclude>
                         <exclude>**/com/rubencarmona/microservicecalculator/config/*</exclude>
-                        <exclude>**/com/rubencarmona/microservicecalculator/helpers/*</exclude>
-                        <exclude>**/com/rubencarmona/microservicecalculator/utils/*</exclude>
-                        <exclude>**/com/rubencarmona/microservicecalculator/mapper/*</exclude>
+                        <exclude>**/com/rubencarmona/microservicecalculator/exception/*</exclude>
+                        <exclude>**/com/rubencarmona/microservicecalculator/util/*</exclude>
+                        <exclude>**/com/rubencarmona/microservicecalculator/MicroservicecalculatorApplication.java</exclude>
                     </excludes>
                 </configuration>
                 <executions>

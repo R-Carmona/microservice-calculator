@@ -17,7 +17,6 @@ import java.util.logging.Logger;
  */
 @Service
 @AllArgsConstructor
-@NoArgsConstructor
 public class MicroServiceCalculatorServiceImpl implements MicroServiceCalculatorService {
 
     TracerImpl tracer;

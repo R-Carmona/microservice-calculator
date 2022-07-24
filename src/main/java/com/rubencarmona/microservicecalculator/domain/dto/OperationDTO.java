@@ -1,5 +1,6 @@
 package com.rubencarmona.microservicecalculator.domain.dto;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +18,10 @@ import java.math.BigDecimal;
 @Builder
 public class OperationDTO implements Serializable {
 
+    @ApiModelProperty(value = "Primer operador", dataType = "BigDecimal", example = "1.5", position = 1, required = true)
     BigDecimal firstOperator;
+    @ApiModelProperty(value = "Segundo operador", dataType = "BigDecimal", example = "2.5", position = 2, required = true)
     BigDecimal secondOperator;
+    @ApiModelProperty(value = "Operador, suma=+ / resta=-", dataType = "String", example = "+", position = 3, required = true)
     String operator;
 }
