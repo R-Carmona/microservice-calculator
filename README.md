@@ -78,7 +78,7 @@ En la UI de Swageer está toda la información para poder user el microservicio.
 
 ## Resources
 
-Dentro de esta carpeta se han incluido unos archivos jar que deberán de ser instalados para el uso del traceador.
+Dentro de esta carpeta se han incluido unos archivos jar que deberán de ser instalados para el uso del traceador y una colección para importar en POSTMAN.
 
 ## Dentro del Microservicio
 
