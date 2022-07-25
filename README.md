@@ -91,7 +91,7 @@ Una vez desplegados tendremos todos los datos necesarios para poder probar y rea
 
 ![Explicación de los datos](02swagger.png)
 
-Algunos estados de respuesta son incluidos por defecto. El más relevante es el de BAD_REQUIEST al
+Algunos estados de respuesta son incluidos por defecto. El más relevante es el de BAD_REQUEST al
 ser esté creado por nosotros con los datos que realmente queremos devolver, se visualiza el objeto
 que recibiremos.
 
