@@ -78,7 +78,7 @@ En la UI de Swageer está toda la información para poder user el microservicio.
 
 ## Resources
 
-Dentro de esta carpeta se han incluido unos archivos jar que deberán de ser instalados para el uso del traceador.
+Dentro de esta carpeta se han incluido unos archivos jar que deberán de ser instalados para el uso del traceador y una colección para importar en POSTMAN.
 
 ## Dentro del Microservicio
 
@@ -91,7 +91,7 @@ Una vez desplegados tendremos todos los datos necesarios para poder probar y rea
 
 ![Explicación de los datos](02swagger.png)
 
-Algunos estados de respuesta son incluidos por defecto. El más relevante es el de BAD_REQUIEST al
+Algunos estados de respuesta son incluidos por defecto. El más relevante es el de BAD_REQUEST al
 ser esté creado por nosotros con los datos que realmente queremos devolver, se visualiza el objeto
 que recibiremos.
 
