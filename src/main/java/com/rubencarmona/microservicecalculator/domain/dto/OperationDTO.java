@@ -5,10 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
-
 /**
  * Clase para la transferencia de los datos de la operación.
  */

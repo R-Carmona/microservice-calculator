@@ -10,13 +10,12 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDateTime;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import java.util.logging.Logger;
-
 /**
  * Controlador principal.
  */
@@ -25,8 +24,8 @@ import java.util.logging.Logger;
 @AllArgsConstructor
 public class MicroServiceCalculatorController {
 
-    private final Logger LOGGER = Logger.getLogger(MicroServiceCalculatorController.class.getName());
-    private MicroServiceCalculatorService microServiceCalculatorService;
+    final Logger LOGGER = Logger.getLogger(MicroServiceCalculatorController.class.getName());
+    MicroServiceCalculatorService microServiceCalculatorService;
 
     /**
      * Método para la obtención del resultado de las operaciones.

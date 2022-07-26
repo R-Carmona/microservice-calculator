@@ -6,14 +6,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-
 import java.time.LocalDateTime;
 import java.util.logging.Logger;
-
 @RestControllerAdvice
 public class GlobalControllerAdvice extends ResponseEntityExceptionHandler {
 
-    private final Logger LOGGER = Logger.getLogger(MicroServiceCalculatorController.class.getName());
+    final Logger LOGGER = Logger.getLogger(MicroServiceCalculatorController.class.getName());
     /**
      * Método anotado con ExceptionHandler para manejar la excepción cuando se produzca.
      * @param ex Excepción personalizada.

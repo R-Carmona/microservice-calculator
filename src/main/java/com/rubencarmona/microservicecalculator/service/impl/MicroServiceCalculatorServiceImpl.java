@@ -1,17 +1,13 @@
 package com.rubencarmona.microservicecalculator.service.impl;
-
 import com.rubencarmona.microservicecalculator.domain.Operation;
 import com.rubencarmona.microservicecalculator.domain.dto.OperationDTO;
 import com.rubencarmona.microservicecalculator.domain.dto.OperationResultDTO;
 import com.rubencarmona.microservicecalculator.service.MicroServiceCalculatorService;
 import io.corp.calculator.TracerImpl;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import java.math.BigDecimal;
 import java.util.logging.Logger;
-
 /**
  * Clase de servicio con la lógica de la realización de las operaciones.
  */
@@ -20,7 +16,7 @@ import java.util.logging.Logger;
 public class MicroServiceCalculatorServiceImpl implements MicroServiceCalculatorService {
 
     TracerImpl tracer;
-    private final Logger LOGGER = Logger.getLogger(MicroServiceCalculatorServiceImpl.class.getName());
+    final Logger LOGGER = Logger.getLogger(MicroServiceCalculatorServiceImpl.class.getName());
 
 
     /**

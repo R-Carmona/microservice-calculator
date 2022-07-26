@@ -1,8 +1,6 @@
 package com.rubencarmona.microservicecalculator.helpers;
-
 import com.rubencarmona.microservicecalculator.domain.dto.OperationDTO;
 import com.rubencarmona.microservicecalculator.domain.dto.OperationResultDTO;
-
 import java.math.BigDecimal;
 
 public class DatosHelper {
