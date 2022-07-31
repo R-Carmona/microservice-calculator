@@ -13,7 +13,7 @@ Recibe dos parámetros y un operador aritmético.
 Solamente está implementado la suma y resta, dejando la posibilidad de añadir más 
 operadores y extender las operaciones a realizar.
 
-Nos hemos vasado en la estructura típica por capas, separando controladores, servicios, etc...
+Nos hemos basado en la estructura típica por capas, separando controladores, servicios, etc...
 
 ![Estructura del proyecto](estructura-proyecto.png)
 
