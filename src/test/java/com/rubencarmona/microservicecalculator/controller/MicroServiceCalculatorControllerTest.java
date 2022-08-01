@@ -1,11 +1,17 @@
 package com.rubencarmona.microservicecalculator.controller;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rubencarmona.microservicecalculator.helpers.DatosHelper;
+import com.rubencarmona.microservicecalculator.service.MathOperatorService;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 import org.springframework.test.web.servlet.MockMvc;
+
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -20,8 +26,13 @@ class MicroServiceCalculatorControllerTest {
     @Autowired
     ObjectMapper objectMapper;
 
+    @Mock
+    ApplicationContext context;
+
     @Test
     public void controllerOKTest() throws Exception {
+
+        when(this.context.getBean("+", MathOperatorService.class)).thenReturn(DatosHelper.createMathOperatorAdd());
         mockMvc
                 .perform(
                         post("/api/operation")

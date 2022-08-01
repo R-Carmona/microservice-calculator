@@ -4,17 +4,21 @@ import com.rubencarmona.microservicecalculator.domain.dto.OperationDTO;
 import com.rubencarmona.microservicecalculator.domain.dto.OperationResultDTO;
 import com.rubencarmona.microservicecalculator.exception.ApiError;
 import com.rubencarmona.microservicecalculator.exception.OperationBadRequest;
+import com.rubencarmona.microservicecalculator.service.MathOperatorService;
 import com.rubencarmona.microservicecalculator.service.MicroServiceCalculatorService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
+import org.springframework.context.ApplicationContext;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.util.logging.Logger;
 /**
  * Controlador principal.
@@ -27,6 +31,7 @@ public class MicroServiceCalculatorController {
     final Logger LOGGER = Logger.getLogger(MicroServiceCalculatorController.class.getName());
     MicroServiceCalculatorService microServiceCalculatorService;
 
+    ApplicationContext context;
     /**
      * Método para la obtención del resultado de las operaciones.
      * @param operationDTO Request con dos valores y un operador.
@@ -76,7 +81,14 @@ public class MicroServiceCalculatorController {
         if(operationDTO.getOperator().isEmpty() || operationDTO.getOperator().isBlank()){
             LOGGER.warning("Operador con cadena vacía: " + LOGGER.getName());
             throw  new OperationBadRequest("Operador con cadena vacía");
-        }else if(!operationDTO.getOperator().equals("+") && !operationDTO.getOperator().equals("-")){
+        }
+        /**
+         * Capturamos la excepción si no existe el bean, querrá decir que no tenemos implementada
+         * la operación.
+         */
+        try {
+            this.context.getBean(operationDTO.getOperator(), MathOperatorService.class);
+        } catch (NoSuchBeanDefinitionException e){
             LOGGER.warning("Operador no permitido: " + LOGGER.getName());
             throw new OperationBadRequest("Operador no permitido");
         }

@@ -1,23 +1,28 @@
 package com.rubencarmona.microservicecalculator.service.impl;
+
 import com.rubencarmona.microservicecalculator.domain.Operation;
 import com.rubencarmona.microservicecalculator.domain.dto.OperationDTO;
 import com.rubencarmona.microservicecalculator.domain.dto.OperationResultDTO;
+import com.rubencarmona.microservicecalculator.service.MathOperatorService;
 import com.rubencarmona.microservicecalculator.service.MicroServiceCalculatorService;
 import io.corp.calculator.TracerImpl;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
+
 import java.math.BigDecimal;
 import java.util.logging.Logger;
 /**
  * Clase de servicio con la lógica de la realización de las operaciones.
  */
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class MicroServiceCalculatorServiceImpl implements MicroServiceCalculatorService {
 
-    TracerImpl tracer;
+    final TracerImpl tracer;
     final Logger LOGGER = Logger.getLogger(MicroServiceCalculatorServiceImpl.class.getName());
 
+    final ApplicationContext context;
 
     /**
      * Método que realiza las operaciones.
@@ -27,6 +32,13 @@ public class MicroServiceCalculatorServiceImpl implements MicroServiceCalculator
     @Override
     public OperationResultDTO getOperation(OperationDTO operationDTO) {
 
+        /**
+         * Añadimos un componente obtenido del contexto de la aplicación, el cual llamará a su clase correcta
+         * referenciando el signo del operador obtenido en la llamada, para añadir más operaciones solo habrá
+         * que implementar la interfaz MathOperator y la lógica de la operación que queremos realizar.
+         */
+        MathOperatorService mathOperatorService = this.context.getBean(operationDTO.getOperator(), MathOperatorService.class);
+
         LOGGER.info("Walking through the MicroServiceCalculatorServiceImpl: " + LOGGER.getName());
 
         Operation operation = Operation.builder().firstOperator(operationDTO.getFirstOperator())
@@ -35,28 +47,13 @@ public class MicroServiceCalculatorServiceImpl implements MicroServiceCalculator
 
         BigDecimal firstOperator = operation.getFirstOperator();
         BigDecimal secondOperator = operation.getSecondOperator();
-        BigDecimal result = BigDecimal.ZERO;
-
-        /**
-         * Realizamos las operaciones permitidas.
-         * Para actualizar el microservicio con más operaciones se deberán de añadir a los
-         * casos posteriores, junto al método {@link com.rubencarmona.microservicecalculator.controller#validator(operationDTO)}
-         */
-        switch (operation.getOperator()){
-            case "+":
-                result = firstOperator.add(secondOperator);
-                break;
-            case "-":
-                result = firstOperator.subtract(secondOperator);
-                break;
-        };
+        BigDecimal result = mathOperatorService.operator(firstOperator,secondOperator);
 
         OperationResultDTO operationResultDTO = OperationResultDTO.builder().operationResult(result).build();
         saveTracerResult(operationResultDTO);
         return operationResultDTO;
 
     }// END METHOD
-
 
     /**
      * Método para guardar los datos de la trazabilidad de las operaciones.

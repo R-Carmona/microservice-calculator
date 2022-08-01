@@ -16,6 +16,7 @@ import java.math.BigDecimal;
 @Builder
 public class OperationDTO implements Serializable {
 
+
     @ApiModelProperty(value = "Primer operador", dataType = "BigDecimal", example = "1.5", position = 1, required = true)
     BigDecimal firstOperator;
     @ApiModelProperty(value = "Segundo operador", dataType = "BigDecimal", example = "2.5", position = 2, required = true)
