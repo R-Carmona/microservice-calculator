@@ -48,7 +48,7 @@ public class MicroServiceCalculatorController {
                     @ApiResponse(code = 500, message = "Internal Server Error")
             })
     @PostMapping("/operation")
-    private ResponseEntity<OperationResultDTO> operation(@ApiParam(value = "Datos para la operación, TODOS los campos son REQUERIDOS. Operator solo admite, suma o resta: + , -",required = true,type = "OperationDTO") @RequestBody OperationDTO operationDTO) {
+    public ResponseEntity<OperationResultDTO> operation(@ApiParam(value = "Datos para la operación, TODOS los campos son REQUERIDOS. Operator solo admite, suma o resta: + , -",required = true,type = "OperationDTO") @RequestBody OperationDTO operationDTO) {
         LOGGER.info("Walking through the controller: " + LOGGER.getName());
         validator(operationDTO);
         OperationResultDTO operationResultDTO = microServiceCalculatorService.getOperation(operationDTO);
@@ -61,7 +61,7 @@ public class MicroServiceCalculatorController {
      * BAD_REQUEST.
      * @param operationDTO
      */
-    private void validator(OperationDTO operationDTO) {
+    public void validator(OperationDTO operationDTO) {
         LOGGER.info("Walking through the ValidatorServiceImpl: " + LOGGER.getName());
 
         /**
