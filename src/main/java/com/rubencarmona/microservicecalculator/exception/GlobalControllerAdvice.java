@@ -1,6 +1,5 @@
 package com.rubencarmona.microservicecalculator.exception;
 
-import com.rubencarmona.microservicecalculator.controller.MicroServiceCalculatorController;
 import io.corp.calculator.TracerImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,8 +15,8 @@ import java.util.logging.Logger;
 @AllArgsConstructor
 public class GlobalControllerAdvice extends ResponseEntityExceptionHandler {
 
-    TracerImpl tracer;
-    final Logger LOGGER = Logger.getLogger(MicroServiceCalculatorController.class.getName());
+    private TracerImpl tracer;
+    private static final Logger LOGGER = Logger.getLogger(GlobalControllerAdvice.class.getName());
     /**
      * Método anotado con ExceptionHandler para manejar la excepción cuando se produzca.
      * @param ex Excepción personalizada.

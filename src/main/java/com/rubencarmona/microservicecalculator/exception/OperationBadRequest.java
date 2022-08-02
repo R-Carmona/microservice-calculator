@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 @ResponseStatus(HttpStatus.BAD_REQUEST)
 public class OperationBadRequest extends RuntimeException {
 
-    final Logger LOGGER = Logger.getLogger(OperationBadRequest.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(OperationBadRequest.class.getName());
     public OperationBadRequest(String message) {
         super(message);
         LOGGER.info("Walking through the OperationBadRequest: " + LOGGER.getName());

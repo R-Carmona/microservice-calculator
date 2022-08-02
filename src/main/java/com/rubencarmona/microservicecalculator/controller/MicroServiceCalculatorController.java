@@ -28,10 +28,10 @@ import java.util.logging.Logger;
 @AllArgsConstructor
 public class MicroServiceCalculatorController {
 
-    final Logger LOGGER = Logger.getLogger(MicroServiceCalculatorController.class.getName());
-    MicroServiceCalculatorService microServiceCalculatorService;
+    private static final Logger LOGGER = Logger.getLogger(MicroServiceCalculatorController.class.getName());
+    private MicroServiceCalculatorService microServiceCalculatorService;
 
-    ApplicationContext context;
+    private ApplicationContext context;
     /**
      * Método para la obtención del resultado de las operaciones.
      * @param operationDTO Request con dos valores y un operador.
@@ -48,7 +48,7 @@ public class MicroServiceCalculatorController {
                     @ApiResponse(code = 500, message = "Internal Server Error")
             })
     @PostMapping("/operation")
-    public ResponseEntity<OperationResultDTO> add(@ApiParam(value = "Datos para la operación, TODOS los campos son REQUERIDOS. Operator solo admite, suma o resta: + , -",required = true,type = "OperationDTO") @RequestBody OperationDTO operationDTO) {
+    private ResponseEntity<OperationResultDTO> operation(@ApiParam(value = "Datos para la operación, TODOS los campos son REQUERIDOS. Operator solo admite, suma o resta: + , -",required = true,type = "OperationDTO") @RequestBody OperationDTO operationDTO) {
         LOGGER.info("Walking through the controller: " + LOGGER.getName());
         validator(operationDTO);
         OperationResultDTO operationResultDTO = microServiceCalculatorService.getOperation(operationDTO);
@@ -61,7 +61,7 @@ public class MicroServiceCalculatorController {
      * BAD_REQUEST.
      * @param operationDTO
      */
-    public void validator(OperationDTO operationDTO) {
+    private void validator(OperationDTO operationDTO) {
         LOGGER.info("Walking through the ValidatorServiceImpl: " + LOGGER.getName());
 
         /**

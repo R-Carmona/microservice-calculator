@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Builder
 public class Operation {
-    BigDecimal firstOperator;
-    BigDecimal secondOperator;
-    String operator;
+    private BigDecimal firstOperator;
+    private BigDecimal secondOperator;
+    private String operator;
 }

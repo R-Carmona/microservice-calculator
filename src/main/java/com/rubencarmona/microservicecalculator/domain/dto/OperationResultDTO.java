@@ -13,5 +13,5 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Builder
 public class OperationResultDTO implements Serializable {
-    BigDecimal operationResult;
+    private BigDecimal operationResult;
 }

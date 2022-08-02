@@ -10,9 +10,9 @@ import java.util.logging.Logger;
  */
 public class CreateJSON {
 
-    public static void main(String[] args) {
-        final Logger LOGGER = Logger.getLogger(CreateJSON.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(CreateJSON.class.getName());
 
+    public static void main(String[] args) {
         LOGGER.info(new Gson().toJson(OperationDTO.builder().firstOperator(new BigDecimal(5)).secondOperator(new BigDecimal(5)).operator("+").build()));
         LOGGER.info(new Gson().toJson(OperationResultDTO.builder().operationResult(new BigDecimal(5))));
     }

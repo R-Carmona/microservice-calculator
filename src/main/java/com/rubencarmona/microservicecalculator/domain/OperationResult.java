@@ -13,5 +13,5 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Builder
 public class OperationResult {
-    BigDecimal operationResult;
+    private BigDecimal operationResult;
 }

@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
 @Getter
 @Builder
 public class ApiError {
-    HttpStatus status;
+    private HttpStatus status;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy hh:mm:ss")
-    LocalDateTime date;
-    String message;
+    private LocalDateTime date;
+    private String message;
 }

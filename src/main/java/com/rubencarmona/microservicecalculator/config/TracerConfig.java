@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class TracerConfig {
 
     @Bean
-    TracerImpl tracer() {
+    public TracerImpl tracer() {
         return new TracerImpl();
     }
 }

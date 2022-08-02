@@ -18,9 +18,9 @@ public class OperationDTO implements Serializable {
 
 
     @ApiModelProperty(value = "Primer operador", dataType = "BigDecimal", example = "1.5", position = 1, required = true)
-    BigDecimal firstOperator;
+    private BigDecimal firstOperator;
     @ApiModelProperty(value = "Segundo operador", dataType = "BigDecimal", example = "2.5", position = 2, required = true)
-    BigDecimal secondOperator;
+    private BigDecimal secondOperator;
     @ApiModelProperty(value = "Operador, suma=+ / resta=-", dataType = "String", example = "+", position = 3, required = true)
-    String operator;
+    private String operator;
 }

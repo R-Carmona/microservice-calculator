@@ -19,10 +19,10 @@ import java.util.logging.Logger;
 @RequiredArgsConstructor
 public class MicroServiceCalculatorServiceImpl implements MicroServiceCalculatorService {
 
-    final TracerImpl tracer;
-    final Logger LOGGER = Logger.getLogger(MicroServiceCalculatorServiceImpl.class.getName());
+    private final TracerImpl tracer;
+    private static final Logger LOGGER = Logger.getLogger(MicroServiceCalculatorServiceImpl.class.getName());
 
-    final ApplicationContext context;
+    private final ApplicationContext context;
 
     /**
      * Método que realiza las operaciones.

@@ -30,7 +30,7 @@ class MicroServiceCalculatorControllerTest {
     ApplicationContext context;
 
     @Test
-    public void controllerOKTest() throws Exception {
+    void controllerOKTest() throws Exception {
 
         when(this.context.getBean("+", MathOperatorService.class)).thenReturn(DatosHelper.createMathOperatorAdd());
         mockMvc
@@ -43,7 +43,7 @@ class MicroServiceCalculatorControllerTest {
     }
 
     @Test
-    public void controllerNokOKTest() throws Exception {
+    void controllerNokOKTest() throws Exception {
         mockMvc
                 .perform(
                         post("/api/operation")
@@ -54,7 +54,7 @@ class MicroServiceCalculatorControllerTest {
     }
 
     @Test
-    public void controllerNokOKTestFirstOperator() throws Exception {
+    void controllerNokOKTestFirstOperator() throws Exception {
         mockMvc
                 .perform(
                         post("/api/operation")
@@ -65,7 +65,7 @@ class MicroServiceCalculatorControllerTest {
     }
 
     @Test
-    public void controllerNokOKTestSecondOperator() throws Exception {
+    void controllerNokOKTestSecondOperator() throws Exception {
         mockMvc
                 .perform(
                         post("/api/operation")
@@ -76,7 +76,7 @@ class MicroServiceCalculatorControllerTest {
     }
 
     @Test
-    public void controllerNokOKTestOperator() throws Exception {
+    void controllerNokOKTestOperator() throws Exception {
         mockMvc
                 .perform(
                         post("/api/operation")
